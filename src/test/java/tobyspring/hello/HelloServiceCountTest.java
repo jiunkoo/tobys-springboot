@@ -4,10 +4,11 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@HelloTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class HelloServiceCountTest {
 
 	@Autowired

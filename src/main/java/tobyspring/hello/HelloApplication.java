@@ -1,12 +1,12 @@
 package tobyspring.hello;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import jakarta.annotation.PostConstruct;
-import tobyspring.config.MySpringBootApplication;
 
-@MySpringBootApplication
+@SpringBootApplication
 public class HelloApplication {
 
 	private final JdbcTemplate jdbcTemplate;
