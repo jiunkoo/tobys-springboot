@@ -1,11 +1,24 @@
 package tobyspring.hello;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import jakarta.annotation.PostConstruct;
 import tobyspring.config.MySpringBootApplication;
 
 @MySpringBootApplication
 public class HelloApplication {
+
+	private final JdbcTemplate jdbcTemplate;
+
+	public HelloApplication(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	@PostConstruct
+	void init() {
+		jdbcTemplate.execute("create table if not exists hello(name varchar(50) primary key, count int)");
+	}
 
 	public static void main(String[] args) {
 
